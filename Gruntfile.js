@@ -18,15 +18,7 @@ module.exports = function(grunt){
     },
 
     less: {
-      develop: {
-        options: {
-          compress: false
-        },
-        files: {
-          'dist/main.css': 'style/*.less'
-        }
-      },
-      dist: {
+      main: {
         files: {
           'dist/main.css': 'style/*.less'
         }
@@ -43,7 +35,7 @@ module.exports = function(grunt){
       },
       less: {
         files: ['style/*.less'],
-        tasks: 'less:develop'
+        tasks: 'less'
       }
     }
   });
@@ -54,6 +46,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-elm');
 
   grunt.registerTask('devel', ['watch']);
-  grunt.registerTask('make', ['less:dist', 'elm', 'uglify']);
+  grunt.registerTask('make', ['less', 'elm', 'uglify']);
   grunt.registerTask('default', ['make']);
 }
