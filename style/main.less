@@ -1,0 +1,107 @@
+@import (less) '../bower_components/normalize.css/normalize.css';
+
+nav.navbar {
+  width: 100%;
+  background-color: #F5F5F5;
+  border-bottom: solid 1px #e5e5e5;
+  box-sizing: border-box;
+  height: 40px;
+
+  ul {
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 5px;
+
+    * {
+      display: block;
+      padding: 0 15px;
+      float: left;
+      color: #777;
+
+      &:first-child {
+        padding-left: 10px;
+      }
+    }
+
+    .brand {
+      cursor: pointer;
+    }
+  }
+}
+
+main {
+  padding: 0 20px;
+
+  h1 {
+    font-size: 30px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #eee;
+  }
+
+  h2 { font-size: 24px; }
+  h3 { font-size: 18px; }
+  h4 { font-size: 16px; }
+  h5 { font-size: 15px; }
+  h6 { font-size: 14px; }
+
+  dl {
+    margin-top: 0;
+  }
+
+  dt {
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  .comment {
+    color: #777;
+    font-size: 15px;
+    margin-left: 3%;
+    width: 97%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.module {
+    h1 small {cursor: pointer;}
+    dt {cursor: auto; }
+
+    .description {
+      color: #777;
+      font-size: 15px;
+
+      pre {
+        margin-top: 2px;
+      }
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .keyword {
+      color: #37a;
+    }
+  }
+
+  .type-signature {
+    .arrow {
+      color: #248;
+    }
+    
+    .type {
+      color: #630;
+    }
+    
+    .app .app:not(.tuple) {
+      &:before {content: '('; }
+      &:after  {content: ')'; }
+    }
+  }
+}

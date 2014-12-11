@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style-place />
+    <db-script-place id="db" type="application/json" />
+    <elm-script-place />
+  </head>
+  <body>
+    <script>
+var db = document.getElementById('db');
+var elm = Elm.fullscreen(Elm.Main,
+    { databaseStr: db.text,
+      getHash:     window.location.href,
+      once:        true,
+      initialHash: window.location.hash
+    });
+
+var sendHash = function(){
+  elm.ports.getHash.send(window.location.hash);
+}
+
+window.onhashchange = sendHash;
+
+elm.ports.setHash.subscribe(function(hash){
+  window.location.hash = hash;
+});
+
+elm.ports.scroll.subscribe(function(scr){
+  document.body.scrollTop = document.documentElement.scrollTop = scr;
+});
+
+elm.ports.once.send(true);
+    </script>
+  </body>
+</html>
