@@ -107,8 +107,8 @@ collectDoc elmDoc dir = getExactDeps (dir </> "exact-dependencies.json") >>=
 main :: IO ()
 main = do
     doc <- collectDoc "elm-doc" "elm-stuff"
-    let style  = $(TH.runIO (readFile "./dist/main.css") >>= TH.stringE)
-        script = $(TH.runIO (readFile "./dist/main.js") >>= TH.stringE)
+    let style  = $(TH.runIO (readFile "./dist/main.min.css") >>= TH.stringE)
+        script = $(TH.runIO (readFile "./dist/main.min.js") >>= TH.stringE)
         index  = $(TH.runIO (readFile "./html/index.html") >>= TH.stringE)
         processTag (TS.TagOpen  "style-place" a) = [TS.TagOpen  "style" a, TS.TagText style]
         processTag (TS.TagClose "style-place")   = [TS.TagClose "style"]
